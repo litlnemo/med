@@ -1,7 +1,10 @@
 #!/usr/bin/env python
 
-"""med.py: A script for searching the Middle English Dictionary.
+"""med.py: A script for searching the Middle English Dictionary,
+   designed for use by those researching Medieval names.
    The script defaults to Boolean search with full "open" results.
+   
+   v. 1.0.1, 14 September 2013
 """
 
 import re
@@ -9,10 +12,16 @@ import re
 from bs4 import BeautifulSoup
 import requests
 
+# Forming query, depending on whether you want a surname-specific search or not. N.B. -- the MED doesn't always mark surnames.
 
-search_term = raw_input("What word would you like to search for? ")
+surname_search = raw_input("Limit search to pages with surnames? y/n ")
 
-url = "http://quod.lib.umich.edu/cgi/m/mec/med-idx?type=boolean&q1=" + search_term + "&rgn1=Anywhere&operator1=And&q2=&rgn2=Anywhere&operator2=And&q3=&rgn3=Anywhere&size=All"
+if surname_search == "y":
+	search_term = raw_input("What word would you like to search for on a surname page? ")
+	url = "http://quod.lib.umich.edu/cgi/m/mec/med-idx?type=boolean&q1=" + search_term + "&rgn1=Anywhere&operator1=And&q2=surname&rgn2=Anywhere&operator2=And&q3=&rgn3=Anywhere&size=All"
+else:
+	search_term = raw_input("What word would you like to search for? ")
+	url = "http://quod.lib.umich.edu/cgi/m/mec/med-idx?type=boolean&q1=" + search_term + "&rgn1=Anywhere&operator1=And&q2=&rgn2=Anywhere&operator2=And&q3=&rgn3=Anywhere&size=All"	
 
 # Get text of search results
 
