@@ -1,0 +1,17 @@
+med.py
+by Wendi Dunlap
+
+med.py is a short and simple script for searching the Middle English Dictionary. The script defaults to Boolean search with full "open" results.
+
+I do a lot of searching for research projects, and the default "closed" search results are never what I am looking for. So every single time I did a search I had to reload the page to load it in "open" format. It gets old.
+
+So this script gives me a default search that suits my needs a bit.
+
+1.0:
+
+Functional if not pretty. Features: Boolean search with default "open" results, correct response (in console) to searches with empty results, correct response to single result searches, which are displayed differently on the OED site.
+
+
+
+
+   
