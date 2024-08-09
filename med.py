@@ -1,122 +1,97 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 
 """med.py: A script for searching the Middle English Dictionary,
    designed for use by those researching Medieval names.
-   The script defaults to Boolean search with full "open" results, 
-   so you don't have to keep reloading pages if "open" results are
-   necessary for your research.
    
    v. 1.0.1, 14 September 2013
    v. 1.0.2, 30 September 2013:
-   	- added loop, so you can search over and over again
-   	- custom icon
-   	- program now closes after you cancel search
-   	- pages slightly prettier.
+       - added loop, so you can search over and over again
+       - custom icon
+       - program now closes after you cancel search
+       - pages slightly prettier.
+   v. 2.0, 8 August 2024:
+       - updated for Python 3
+       - Pashua removed as it is no longer supported 
+       - this means that for now this is command line only, sorry
+       - no loop at the moment
+       - cannot open pages with full open results... for now
 """
 
+import os
+import requests
+from bs4 import BeautifulSoup
+import webbrowser
 import re
 
-from bs4 import BeautifulSoup
-import requests
+search_term = input("Search term: ")
 
-import urllib2
-import webbrowser
+url = (
+    "https://quod.lib.umich.edu/m/middle-english-dictionary/dictionary?utf8=✓&search_field=hnf&q="
+    + search_term
+    )
 
-import Pashua
-import os
+# Get text of search results
 
-# Forming query, by popping up a dialog for user input
+r = requests.get(url)
+page_data = r.text
+soup = BeautifulSoup(page_data, "html.parser")
+count = 0
 
-# Pashua (dialog box) configuration
+# Open file to write to, write HTML for top of page
 
-conf = """ 
-# Set transparency: 0 is transparent, 1 is opaque
-*.transparency=0.95
+file_path = os.path.expanduser("~/Documents/medresults.html")
+with open(file_path, "w", encoding="utf-8") as file:
+    file.write(
+        "<html>"
+        + "\n"
+        + '<head><title>Middle English Dictionary open search results</title><base href="http://quod.lib.umich.edu" /><meta charset="UTF-8"></head>'
+        + "\n"
+        + '<body style="background-color: #fdf0b4; font-family: helvetica, arial, sans-serif; margin: 10px 20px 10px 20px;">'
+        + "\n"
+        )
+    file.write(
+        '<h1>Middle English Dictionary open search results for the word "'
+        + str(search_term)
+        + '":</h1>'
+        + "\n"
+        )
+    file.write("<ul>" + "\n")
 
-# Set window title
-*.title = MED Open Search
+    # Find relevant links, build LIs with them
 
-# Add a search field
-tf.type = textfield
-tf.label = What word would you like to search for?
-tf.default = 
-tf.width = 310
+    get_urls = soup.find_all("h3", class_="index_title document-title-heading col-md-12" )
 
-# Add a cancel button with default label
-cb.type=cancelbutton
-"""
-p_result = Pashua.run(conf)
+    if not get_urls:
 
-# Here begins while loop; basically, the program will keep asking for new search terms until the user hits the cancelbutton.
-
-while (p_result['cb'] == "0"):
-		
-	search_term = str(p_result['tf'])
-
-	url = "http://quod.lib.umich.edu/cgi/m/mec/med-idx?type=boolean&q1=" + search_term + "&rgn1=Anywhere&operator1=And&q2=&rgn2=Anywhere&operator2=And&q3=&rgn3=Anywhere&size=All"	
-
-	# Get text of search results
-
-	r  = requests.get(url)
-	page_data = r.text
-	soup = BeautifulSoup(page_data)
-	count = 0
-	
-	# Open file to write to, write HTML for top of page
-
-	file = open((os.path.expanduser("~/Documents/medresults2.html")), "wb")
-	file.write("<html>" + "\n" + "<head><title>Middle English Dictionary open search results</title><base href=\"http://quod.lib.umich.edu\" /></head>" + "\n" + "<body style=\"background-color: #fdf0b4; font-family: helvetica, arial, sans-serif; margin: 10px 20px 10px 20px;  \">" + "\n")
-	file.write("<h1>Middle English Dictionary open search results for the word \"" + str(search_term) + "\":</h1>" + "\n")
-	file.write("<ul>" + "\n" )
-
-	# find relevant links, build LIs with them
-
-	get_urls = soup.select('li > font > a')
-	if get_urls == []:
-	
-		the_word = soup.select("p > font > strong")
-	
-		if the_word == []:
-			print "Error! No results."
-			file.write("<li>" + "\n")
-			file.write("Sorry, no results!" + "\n")
-			file.write("</li>" + "\n")
-		
-		else:
-			print "Single page result"
-			permalink = soup.input["value"]
-			print permalink
-			file.write("<li>" + "\n")
-			file.write("<a href=\"" + str(permalink) + "&egs=all&egdisplay=open\">" + str(the_word) + "</a>")
-			file.write("</li>" + "\n")
-			print "Added 1 to page"
-	
+        print("Error! No results.")
+        file.write("<li>" + "\n")
+        file.write("Sorry, no results!" + "\n")
+        file.write("</li>" + "\n")
 
 
-	for link in get_urls:
-		file.write("<li>" + "\n")
-	
-		short_url = link.get('href')
-		full_url = "http://quod.lib.umich.edu" + short_url + "&egs=all&egdisplay=open"
-	
-		link["href"] = full_url
-	
-		file.write(str(link))
-		file.write("</li>" + "\n")
-		print "Added " + str(count + 1) + " to page"
-		count = count+ 1
-	
-#finish HTML and close 'er up!
-	
-	file.write("</ul>" + "\n" + "<p style=\"font-size: small; border-top: 1px solid black; margin-top: 10px; padding-top: 15px;\">Page generated by MED Open Search. Software &copy; Wendi Dunlap, 2013. The MED and all search results &copy; University of Michigan. </p></body>" + "\n" + "</html>" )
-	file.flush()
-	file.close()
+    for link in get_urls:
+        file.write("<li>" + "\n")
+        index_number = soup.find(text=re.compile(r"/m/middle-english-dictionary/dictionary/MED\d\d\d\d\d"))
 
-	html_url = "file://" + os.path.expanduser("~/Documents/medresults2.html")
-	
-	webbrowser.open_new(html_url)
-	
-	print "Waiting for another response"
-	
-	p_result = Pashua.run(conf)
+        full_url = "https://quod.lib.umich.edu/m/middle-english-dictionary/dictionary/" + str(index_number)
 
+        link["href"] = full_url
+
+        file.write(str(link))
+        file.write("</li>" + "\n")
+        print("Added " + str(count + 1) + " to page") 
+        count += 1
+
+    # Finish HTML and close 'er up!
+
+    file.write(
+        "</ul>"
+        + "\n"
+        + '<p style="font-size: small; border-top: 1px solid black; margin-top: 10px; padding-top: 15px;">Page generated by MED Open Search. Software &copy; Wendi Dunlap, 2013, 2024. The MED and all search results &copy; University of Michigan. </p></body>'
+        + "\n"
+        + "</html>"
+        )
+
+    html_url = "file://" + file_path
+
+    webbrowser.open_new(html_url)
