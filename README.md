@@ -20,6 +20,9 @@ med.py uses the BeautifulSoup libraries.
 
 ## Updates
 
+2.0G (10 August 2024):
+This separate script uses PySimpleGUI to make a search dialogue box. You still need to start it from the command line for now. The regular 2.0 script is still current if you don't care about the dialog box.
+
 2.0 (8 August 2024):
 Yikes, it's been a long time! Updated code to Python 3. Removed Pashua GUI since it is no longer supported. Removed loop, though clearly it's useful, so it may return sometime! App is now command-line only. You can't open pages in open quotations mode; blame the MED's redesign (it is a lot better, but not for med.py!).
 
