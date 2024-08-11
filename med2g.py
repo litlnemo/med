@@ -7,6 +7,8 @@ import re
 
 """med.py: A script for searching the Middle English Dictionary,
    designed for use by those researching Medieval names.
+
+   This script is the version used in the standalone Mac app, but you do not need a Mac to run this from the command line.
    
    v. 1.0.1, 14 September 2013
    v. 1.0.2, 30 September 2013:
@@ -21,8 +23,11 @@ import re
        - no loop at the moment
        - cannot open pages with full open results... for now
 
-    v. 2.0G, 10 Aug 2024:
+    v. 2.0G, 10 August 2024:
        - PySimpleGUI added
+
+    v. 2.0.1G, 11 August 2024
+       - changed deprecated "soup.find(text)" to "soup.find(string)"
 """
 
 # Search window contents
