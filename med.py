@@ -1,5 +1,3 @@
-#!/usr/bin/env python3
-
 """med.py: A script for searching the Middle English Dictionary,
    designed for use by those researching Medieval names.
    
@@ -15,6 +13,8 @@
        - this means that for now this is command line only, sorry
        - no loop at the moment
        - cannot open pages with full open results... for now
+   v. 2.0.1, 11 August 2024
+       - changed deprecated "soup.find(text)" to "soup.find(string)"
 """
 
 import os
@@ -71,7 +71,7 @@ with open(file_path, "w", encoding="utf-8") as file:
 
     for link in get_urls:
         file.write("<li>" + "\n")
-        index_number = soup.find(text=re.compile(r"/m/middle-english-dictionary/dictionary/MED\d\d\d\d\d"))
+        index_number = soup.find(string=re.compile(r"/m/middle-english-dictionary/dictionary/MED\d\d\d\d\d"))
 
         full_url = "https://quod.lib.umich.edu/m/middle-english-dictionary/dictionary/" + str(index_number)
 
