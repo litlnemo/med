@@ -12,7 +12,7 @@ In 2024, I decided to fix it, and now you can search directly without going thro
 
 * Download one of the versions of med.py. The "g" version has a GUI dialog box; the other is entirely from the command line.
 * You will need these additional libraries installed in your copy of Python: requests, BeautifulSoup. If you are going to run the "g" version, add PySimpleGUI.
-* When in the directory you've installed med.py into, type `python3 med.py` into your terminal.
+* When in the directory you've installed med.py into, type `python3 med.py` or `python3 med2g.py` into your terminal.
 * You will either get a prompt in your terminal, or a GUI dialog box. Choose the word you are searching for. It's a "headword and alternate forms" search so you'll need to know at least one Middle English spelling of the word.
 * A web page will open with a list of words that match your search. Click on the word you want to look at, and it will open the MED page for that word.
 * To force the MED page to open in "show quotations" mode, download MED Open Click.user.js and follow the directions in your userscript manager to activate it.
