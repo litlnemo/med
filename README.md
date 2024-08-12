@@ -13,7 +13,7 @@ In 2024, I decided to fix it, and now you can search directly without going thro
 ## Installation and usage: standalone Mac app
 
 If you are using a Mac, it's easiest to just use the standalone app, unless you want to edit the code. 
-* [Download the app here](https://github.com/litlnemo/med/releases/tag/v2.1) and save it to your Mac.
+* [Download the app here](https://github.com/litlnemo/med/releases/tag/v2.2) and save it to your Mac.
 * Launch it as you would launch any other program.
 * A dialog box will appear in which you can type in the word you are searching for. Hit enter/return to submit the search. It's a "headword and alternate forms" search so you'll need to know at least one Middle English spelling of the word.
 * If it's your first time using the app, it will probably ask you if it's OK to access your documents folder. This is because that is where it will save the web page it generates. Don't worry, it doesn't look at anything else in there.
