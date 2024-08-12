@@ -1,3 +1,6 @@
+![MEDOpenSearchGraphic](MEDOpenSearchGraphic.png)
+
+
 # med.py: Middle English Dictionary search
 
 med.py is a short and simple script for searching the Middle English Dictionary. 
