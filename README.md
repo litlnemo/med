@@ -1,4 +1,4 @@
-![MED Open Search: Easier research in the MED!]](MEDOpenSearchGraphic.png)
+![MED Open Search: Easier research in the MED!](MEDOpenSearchGraphic.png)
 
 # med.py: Middle English Dictionary search
 
