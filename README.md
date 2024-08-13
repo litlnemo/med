@@ -42,7 +42,7 @@ med.py uses the BeautifulSoup libraries.
 
 ## Updates
 
-**2.2 (12 August 2024)
+**2.2 (12 August 2024)**
 
 Additional search functions added to both 2.2g and the Mac app.
 
