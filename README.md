@@ -42,6 +42,10 @@ med.py uses the BeautifulSoup libraries.
 
 ## Updates
 
+**2.2 (12 August 2024)
+
+Additional search functions added to both 2.2g and the Mac app.
+
 **2.0.1 and 2.0.1g, 2.1 Mac app (11 August 2024):**
 
 2.0.1 is just a minor fix to update a deprecated Beautiful Soup function. 2.1 is the Mac app. The script underlying it is 2.0.1g. The app was built with [Platypus](https://github.com/sveinbjornt/Platypus).
