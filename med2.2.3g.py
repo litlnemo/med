@@ -36,9 +36,6 @@ import re
     v. 2.2G 12 Aug 2024
        - different searches added -- "definition and notes" and "modern English word equivalent"
        - from this point version numbers are intended to match the standalone app
-
-    v. 2.2.3G
-       - TBD
 """
 
 # Search window contents
@@ -141,7 +138,7 @@ while True:
                 if span_counter:
                     span_counter.decompose()
 
-                file.write('<li style="padding: 10px 0 10px 5px">' + "\n")
+                file.write('<li style="padding: 10px 0 10px 5px"><b>' + "\n")
 
                 # Find the correct index number in the link
                 index_number = re.search(r"MED\d\d\d\d\d", link_tag["href"])
@@ -151,7 +148,7 @@ while True:
                     link_tag["href"] = full_url
 
                 file.write(str(link_tag))
-                file.write("</li>" + "\n")
+                file.write("</li></b>" + "\n")
                 print("Added " + str(count + 1) + " to page")
                 count += 1
 
