@@ -2,7 +2,7 @@
 
 # MED Open Search: Middle English Dictionary search
 
-Quick link: [Documentation is here](/litlnemo/med/wiki/MED-Open-Search-Documentation).
+Quick link: [Documentation is here](https://github.com/litlnemo/med/wiki/MED-Open-Search-Documentation).
 
 MED Open Search is a short and simple script for searching the Middle English Dictionary. 
 
@@ -14,13 +14,13 @@ In 2024, I decided to fix it, and now you can search directly without going thro
 
 ## Installation and usage: 
 
-[See the documentation](/litlnemo/med/wiki/MED-Open-Search-Documentation).
+[See the documentation](https://github.com/litlnemo/med/wiki/MED-Open-Search-Documentation).
 
 ## Things to note about MED Open Search:
 * Unless you use MED Open Click.user.js with a userscript manager, you will have to click the "Show Quotations" button on the MED pages you go to. This is less annoying than it used to be, though, because there is no page reload.
 * MED Open Search uses the BeautifulSoup libraries.
 * Platypus is used to turn this into a standalone app.
-* If you know how to run a Python script and install libraries, you can run the script from a command line if necessary. [See the docs](/litlnemo/med/wiki/MED-Open-Search-Documentation).
+* If you know how to run a Python script and install libraries, you can run the script from a command line if necessary. [See the docs](https://github.com/litlnemo/med/wiki/MED-Open-Search-Documentation).
 
 -- Wendi
 
