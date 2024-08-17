@@ -172,5 +172,3 @@ while True:
             html_url = "file://" + file_path
             
             webbrowser.open_new(html_url)
-
- 
