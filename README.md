@@ -24,7 +24,7 @@ If you are using a Mac, it's easiest to just use the standalone app, unless you 
 
 * Download one of the versions of med.py from [https://github.com/litlnemo/med](https://github.com/litlnemo/med). The "g" version has a GUI dialog box; the other is entirely used from the command line.
 * You will need these additional libraries installed in your copy of Python: requests, BeautifulSoup. If you are going to run the "g" version, add PySimpleGUI.
-* When in the directory you've installed med.py into, type `python3 med.py` or `python3 med2g.py` into your terminal.
+* When in the directory you've installed med.py into, type `python3 med.py` or `python3 medg.py` into your terminal.
 * You will either get a prompt in your terminal, or a GUI dialog box. Choose the word you are searching for. It's a "headword and alternate forms" search so you'll need to know at least one Middle English spelling of the word.
 * If it's your first time using the app, it will probably ask you if it's OK to access your documents folder. This is because that is where it will save the web page it generates. Don't worry, it doesn't look at anything else in there.
 * A web page will open with a list of words that match your search. Click on the word you want to look at, and it will open the MED page for that word.
