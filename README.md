@@ -2,6 +2,8 @@
 
 # MED Open Search: Middle English Dictionary search
 
+Quick link: [Documentation is here](/litlnemo/med/wiki/MED-Open-Search-Documentation).
+
 MED Open Search is a short and simple script for searching the Middle English Dictionary. 
 
 I do a lot of searching the MED for research projects, usually researching medieval names, and the default "closed" search results are never what I am looking for. So it used to be that every single time I did a search I had to reload the page to load it in "open" format. It got old.
@@ -10,31 +12,15 @@ So this script was originally written to give me a default search that suits my 
 
 In 2024, I decided to fix it, and now you can search directly without going through the MED's search interface again! But to automatically load the pages in "open" format, you will have to use the additional userscript with a userscript manager such as Tampermonkey, because that's now controlled via javascript on the MED's side.
 
-## Installation and usage: standalone Mac app
+## Installation and usage: 
 
-If you are using a Mac, it's easiest to just use the standalone app, unless you want to edit the code. 
-* [Download the app here](https://github.com/litlnemo/med/releases/) and save it to your Mac.
-* Launch it as you would launch any other program.
-* A dialog box will appear to choose the folder where you want to write your results page. 
-* Then, a dialog box will appear in which you can type in the word you are searching for. Hit enter/return to submit the search. Choose a search mode if you need to.
-* Enjoy the page of search results!
-* To force the MED page to open in "show quotations" mode, find MED Open Click.user.js (it was in the .zip with the app) and follow the directions in your userscript manager to activate it.
-
-## Installation and usage: command line version
-
-* Download one of the versions of med.py from [https://github.com/litlnemo/med](https://github.com/litlnemo/med). The "g" version has a GUI dialog box; the other is entirely used from the command line, but it is older and has fewer features.
-* You will need these additional libraries installed in your copy of Python: requests, BeautifulSoup. If you are going to run the "g" version, add PySimpleGUI.
-* When in the directory you've installed med.py into, type `python3 med.py` or `python3 medg.py` into your terminal.
-* You will either get a prompt in your terminal, or a GUI dialog box. Choose the word you are searching for. It's a "headword and alternate forms" search so you'll need to know at least one Middle English spelling of the word.
-* If it's your first time using the app, it may ask you if it's OK to access your documents folder. This is because that is where it will save the web page it generates. Don't worry, it doesn't look at anything else in there. (The "G" version won't do this; instead, it will let you cvhoose where to save the page.)
-* A web page will open with a list of words that match your search. Click on the word you want to look at, and it will open the MED page for that word.
-* To force the MED page to open in "show quotations" mode, download MED Open Click.user.js and follow the directions in your userscript manager to activate it.
+[See the documentation](/litlnemo/med/wiki/MED-Open-Search-Documentation).
 
 ## Things to note about MED Open Search:
 * Unless you use MED Open Click.user.js with a userscript manager, you will have to click the "Show Quotations" button on the MED pages you go to. This is less annoying than it used to be, though, because there is no page reload.
-* If you want a GUI dialog box to enter your search words, grab the version with "g" on the end (medg.py), or the Mac app if you have a Mac.
-
-MED Open Search uses the BeautifulSoup libraries. 
+* MED Open Search uses the BeautifulSoup libraries.
+* Platypus is used to turn this into a standalone app.
+* If you know how to run a Python script and install libraries, you can run the script from a command line if necessary. [See the docs](/litlnemo/med/wiki/MED-Open-Search-Documentation).
 
 -- Wendi
 
