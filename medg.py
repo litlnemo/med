@@ -1,5 +1,3 @@
-#!/Users/litlnemo/aProjects/coding/med/myenv/bin/python
-
 import PySimpleGUI as sg
 import os
 import requests
@@ -8,7 +6,8 @@ import webbrowser
 import re
 from tkinter import filedialog
 
-"""med.py: A script for searching the Middle English Dictionary,
+"""
+med.py: A script for searching the Middle English Dictionary,
    designed for use by those researching Medieval names.
    
    v. 1.0.1, 14 September 2013
@@ -38,7 +37,7 @@ from tkinter import filedialog
        - different searches added -- "definition and notes" and "modern English word equivalent"
        - from this point version numbers are intended to match the standalone app
 
-    v. 2.2.1 17 Aug 2024
+    v. 2.2.3 17 Aug 2024
        - fixed visual stuff on the html results page
        - now users can choose where to save the page
 """
