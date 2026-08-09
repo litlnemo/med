@@ -2,6 +2,8 @@
 
 # MED Open Search: Middle English Dictionary search
 
+**Note 8/9/2026: Changes at the MED website have broken this app. It will be fixed; please be patient.**
+
 Quick link: [Documentation is here](https://github.com/litlnemo/med/wiki/MED-Open-Search-Documentation).
 
 MED Open Search is a short and simple script for searching the Middle English Dictionary. 
